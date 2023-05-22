@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:offline_webview/constants/constant.dart';
+import 'package:offline_webview/constants/html_constants.dart';
+import 'package:offline_webview/extensions/webview_extension.dart';
 import 'package:offline_webview/utils/storage_help.dart';
 import 'package:offline_webview/utils/enums.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -28,11 +29,11 @@ class SampleMenu extends StatelessWidget {
         switch (value) {
           case MenuOptions.showUserAgent:
             // _onShowUserAgent();
-            _putHtmlString();
+            putHtmlString();
             break;
           case MenuOptions.listCookies:
             // _onListCookies(context);
-            _getHtmlString();
+            getHtmlString();
             break;
           case MenuOptions.clearCookies:
             _onClearCookies(context);
@@ -127,10 +128,8 @@ class SampleMenu extends StatelessWidget {
     );
   }
 
-  Future<void> _onShowUserAgent() {
-    // Send a message with the user agent string to the Toaster JavaScript channel we registered
-    // with the WebView.
-    return webViewController.runJavaScript(
+  Future<void> _onShowUserAgent() async {
+    await webViewController.runJavaScript(
       'Toaster.postMessage("User Agent: " + navigator.userAgent);',
     );
   }
@@ -170,32 +169,18 @@ class SampleMenu extends StatelessWidget {
         '.then((caches) => Toaster.postMessage(caches))');
   }
 
-  Future<void> _putHtmlString() async {
-    var html = await webViewController.runJavaScriptReturningResult(
-        "window.document.getElementsByTagName('html')[0].outerHTML;");
-    Map<Permission, PermissionStatus> statuses = await [
-      Permission.storage,
-    ].request();
+  Future<void> putHtmlString() async {
+    final html = await webViewController.getHtml();
+
+    await [Permission.storage].request();
 
     if (await Permission.storage.isGranted) {
       await storageHelper.writeTextToFile("webview.html", html.toString());
       await Clipboard.setData(ClipboardData(text: html.toString()));
-      print(html);
     }
   }
 
-  Future<void> getHtmlString() async {
-    final html = await webViewController.runJavaScriptReturningResult(
-        "window.document.getElementsByTagName('html')[0].outerHTML;");
-
-    if (await Permission.storage.isGranted) {
-      await storageHelper.writeTextToFile("webview.html", html.toString());
-      await Clipboard.setData(ClipboardData(text: html.toString()));
-      print(html);
-    }
-  }
-
-  Future<String> _getHtmlString() async {
+  Future<String> getHtmlString() async {
     String html = await storageHelper.readFromFile("webview.html");
     return html;
   }

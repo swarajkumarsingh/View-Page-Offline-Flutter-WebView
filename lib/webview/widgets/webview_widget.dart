@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:offline_webview/utils/snackbar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class FavoriteButton extends StatelessWidget {
@@ -17,9 +18,7 @@ class FavoriteButton extends StatelessWidget {
       onPressed: () async {
         final String? url = await _controller.currentUrl();
         if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Favorited url')),
-          );
+          showSnackBar(msg: 'Favorites $url');
         }
       },
       child: const Icon(Icons.favorite),

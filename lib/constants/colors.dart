@@ -4,5 +4,6 @@ final colors = _Colors();
 
 class _Colors {
   Color backgroundColor = Colors.white;
+  Color white = Colors.white;
   Color black = Colors.black;
 }
