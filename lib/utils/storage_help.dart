@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:offline_webview/utils/clipboard.dart';
+import 'clipboard.dart';
 import 'package:path_provider/path_provider.dart';
 
 final storageHelper = StorageHelper();

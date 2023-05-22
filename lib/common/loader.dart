@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:offline_webview/constants/colors.dart';
+import '../constants/colors.dart';
 
 class Loader extends StatelessWidget {
   const Loader({Key? key, this.size = 80.0, this.semanticsLabel})

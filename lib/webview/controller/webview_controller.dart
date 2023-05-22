@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:offline_webview/common/loader.dart';
-import 'package:offline_webview/utils/logger.dart';
-import 'package:offline_webview/extensions/webview_extension.dart';
-import 'package:offline_webview/utils/snackbar.dart';
-import 'package:offline_webview/utils/storage_help.dart';
+import '../../common/loader.dart';
+import '../../utils/logger.dart';
+import '../../extensions/webview_extension.dart';
+import '../../utils/snackbar.dart';
+import '../../utils/storage_help.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../utils/clipboard.dart';

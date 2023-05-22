@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:offline_webview/common/loader.dart';
-import 'package:offline_webview/constants/colors.dart';
-import 'package:offline_webview/utils/storage_help.dart';
-import 'package:offline_webview/webview/widgets/menu_bar.dart';
-import 'package:offline_webview/webview/widgets/navigation_controls.dart';
+import '../../common/loader.dart';
+import '../../constants/colors.dart';
+import '../../utils/storage_help.dart';
+import '../widgets/menu_bar.dart';
+import '../widgets/navigation_controls.dart';
 
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
