@@ -18,7 +18,7 @@ class FavoriteButton extends StatelessWidget {
         final String? url = await _controller.currentUrl();
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Favorite url')),
+             SnackBar(content: Text('Favorite $url')),
           );
         }
       },

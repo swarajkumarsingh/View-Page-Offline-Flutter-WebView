@@ -28,12 +28,10 @@ class SampleMenu extends StatelessWidget {
       onSelected: (MenuOptions value) {
         switch (value) {
           case MenuOptions.showUserAgent:
-            // _onShowUserAgent();
-            putHtmlString();
+            _onShowUserAgent();
             break;
           case MenuOptions.listCookies:
-            // _onListCookies(context);
-            getHtmlString();
+            _onListCookies(context);
             break;
           case MenuOptions.clearCookies:
             _onClearCookies(context);
@@ -169,21 +167,6 @@ class SampleMenu extends StatelessWidget {
         '.then((caches) => Toaster.postMessage(caches))');
   }
 
-  Future<void> putHtmlString() async {
-    final html = await webViewController.getHtml();
-
-    await [Permission.storage].request();
-
-    if (await Permission.storage.isGranted) {
-      await storageHelper.writeTextToFile("webview.html", html.toString());
-      await Clipboard.setData(ClipboardData(text: html.toString()));
-    }
-  }
-
-  Future<String> getHtmlString() async {
-    String html = await storageHelper.readFromFile("webview.html");
-    return html;
-  }
 
   Future<void> _onClearCache(BuildContext context) async {
     await webViewController.clearCache();
