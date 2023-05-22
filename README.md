@@ -24,11 +24,9 @@ lib
   - screens
   - widgets
 - constants
-  - theme
   - constants.dart
 - features
-  - home
-  - onBoard
+  - webview
 - routes
 - service
 - utils
@@ -40,7 +38,7 @@ lib
 
 |  |  |  |
 | :---:  | :---:  | :---:  |
-| ![](https://res.cloudinary.com/dcz4ttqrs/image/upload/v1684787464/Screenshot_1684787398_tprqrm.png) | ![](https://res.cloudinary.com/dcz4ttqrs/image/upload/v1684787464/Screenshot_1684787413_yahamx.png)
+| ![](https://res.cloudinary.com/dcz4ttqrs/image/upload/v1684788548/Screenshot_1684788429_x0kru7.png) | ![](https://res.cloudinary.com/dcz4ttqrs/image/upload/v1684788505/Screenshot_1684788484_tqsbuw.png)
 
 ## 🚀 About Me
 
