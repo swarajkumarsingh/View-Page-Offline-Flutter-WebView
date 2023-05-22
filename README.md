@@ -1,6 +1,6 @@
 # Save Page Offline Flutter WebView
 
-### View your recent webpage, with out having access to the internet, render recent (html, css, js) whe offline, is now possible with this Repo.
+### View your last webpage, with out having access to the internet, render last page's (html, css, js) when offline, is now possible with this Repo.
 
 ## Features
 - [x] Offline Webviewer
