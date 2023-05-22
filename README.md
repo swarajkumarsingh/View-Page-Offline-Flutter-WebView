@@ -1,16 +1,45 @@
-# offline_webview
+# Save Page Offline Flutter WebView
 
-A new Flutter project.
+### View your recent webpage, with out having access to the internet, render recent (html, css, js) whe offline, is now possible with this Repo.
 
-## Getting Started
+## Features
+- [x] Offline Webviewer
+- [x] Clean folder structure
+- [x] Good code spliting 
+- [x] Good utility functions
 
-This project is a starting point for a Flutter application.
+## Installation
 
-A few resources to get you started if this is your first Flutter project:
+### 1. Run pub get (Install All packages)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+flutter pub get
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Folder Structure
+
+```
+lib
+- common
+  - screens
+  - widgets
+- constants
+  - theme
+  - constants.dart
+- features
+  - home
+  - onBoard
+- routes
+- service
+- utils
+- main.dart
+- my_app.dart
+```
+
+## 🚀 About Me
+
+**Swaraj Kumar Singh** - Android, IOS & Flutter Developer, Full Stack Web developer, Also interested in AI models, Machine Learning and WEB 3.0.
+
+
+## 🛠 Skills
+Javascript, HTML, CSS, REACT, ANGULAR, BOOTSTRAP, TAILWIND, TYPESCRIPT, PHP, NODEJS, DJANGO, EXPRESSJS, MONGODB, FIREBASE, REDIS, WORDPRESS, DYNAMODB, AWS, PYTHON, WEB SCRAPING, SOCKET.IO, JAVA, KOTLIN, DART, FLUTTER, PYTORCH
