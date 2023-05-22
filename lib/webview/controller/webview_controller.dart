@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:offline_webview/common/loader.dart';
 import 'package:offline_webview/utils/logger.dart';
 import 'package:offline_webview/extensions/webview_extension.dart';
+import 'package:offline_webview/utils/snackbar.dart';
 import 'package:offline_webview/utils/storage_help.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -10,6 +12,8 @@ import '../../utils/clipboard.dart';
 final webViewController = _WebViewController();
 
 class _WebViewController {
+  bool showedSnackBar = false;
+  
   Widget onProgress(int progress) => const Loader();
 
   void onPageStarted(String url) {}
@@ -36,12 +40,21 @@ class _WebViewController {
           ''');
   }
 
-  NavigationDecision onNavigationRequest(NavigationRequest request) {
+  Future<NavigationDecision> onNavigationRequest(
+      NavigationRequest request) async {
+    bool connectionStatus = await InternetConnectionChecker().hasConnection;
+
     if (request.url.startsWith('https://www.youtube.com/')) {
-      debugPrint('blocking navigation to {request.url}');
+      debugPrint('blocking navigation to ${request.url}');
       return NavigationDecision.prevent;
     }
-    debugPrint('allowing navigation to {request.url}');
+
+    if (connectionStatus == false) {
+      if (showedSnackBar == false) showSnackBar(msg: "No Internet Connection");
+      showedSnackBar = true;
+      return NavigationDecision.prevent;
+    }
+    debugPrint('allowing navigation to ${request.url}');
     return NavigationDecision.navigate;
   }
 }
