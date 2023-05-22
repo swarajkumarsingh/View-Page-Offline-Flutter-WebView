@@ -5,7 +5,7 @@
 ## Features
 - [x] Offline Webviewer
 - [x] Clean folder structure
-- [x] Good code spliting 
+- [x] Good code splitting 
 - [x] Good utility functions
 
 ## Installation
