@@ -7,9 +7,10 @@ import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../../constants/html_constants.dart';
 import '../../utils/enums.dart';
 import '../../utils/storage_help.dart';
+import '../../constants/constant.dart';
+import '../../constants/html_constants.dart';
 
 class SampleMenu extends StatelessWidget {
   SampleMenu({
@@ -161,7 +162,6 @@ class SampleMenu extends StatelessWidget {
 
   Future<void> _onListCache() {
     return webViewController.runJavaScript('caches.keys()'
-        // ignore: missing_whitespace_between_adjacent_strings
         '.then((cacheKeys) => JSON.stringify({"cacheKeys" : cacheKeys, "localStorage" : localStorage}))'
         '.then((caches) => Toaster.postMessage(caches))');
   }
@@ -195,7 +195,7 @@ class SampleMenu extends StatelessWidget {
       const Utf8Encoder().convert(kNavigationExamplePage),
     );
     return webViewController.loadRequest(
-      Uri.parse('data:text/html;base64,contentBase64'),
+      Uri.parse('data:text/html;base64,$contentBase64'),
     );
   }
 
@@ -232,7 +232,7 @@ class SampleMenu extends StatelessWidget {
   }
 
   Future<void> _onLoadHtmlStringExample() async {
-    String htmlString = await storageHelper.readFromFile("webview.html");
+    String htmlString = await storageHelper.readFromFile(BASE_FILE_NAME);
     return webViewController.loadHtmlString(htmlString);
   }
 

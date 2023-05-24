@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:offline_webview/utils/snackbar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class NavigationControls extends StatelessWidget {
@@ -16,11 +17,7 @@ class NavigationControls extends StatelessWidget {
             if (await webViewController.canGoBack()) {
               await webViewController.goBack();
             } else {
-              if (context.mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('No back history item')),
-                );
-              }
+              if (context.mounted) showSnackBar(msg: "No back history item");
             }
           },
         ),
@@ -30,11 +27,7 @@ class NavigationControls extends StatelessWidget {
             if (await webViewController.canGoForward()) {
               await webViewController.goForward();
             } else {
-              if (context.mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('No forward history item')),
-                );
-              }
+              if (context.mounted) showSnackBar(msg: "No forward history item");
             }
           },
         ),

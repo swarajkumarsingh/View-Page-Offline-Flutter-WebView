@@ -3,7 +3,7 @@
 ### View your last webpage, with out having access to the internet, render last page's (html, css, js) when offline, is now possible with this Repo.
 
 ## Features
-- [x] Offline Webviewer
+- [x] Offline Webview Support
 - [x] Clean folder structure
 - [x] Good code splitting 
 - [x] Good utility functions

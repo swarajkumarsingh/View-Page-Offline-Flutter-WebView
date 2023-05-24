@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'constants/colors.dart';
+
 import 'utils/snackbar.dart';
+import 'constants/colors.dart';
 import 'webview/screens/webview_screen.dart';
 
 class MyApp extends StatelessWidget {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      home: const WebViewExample(),
+      home: const WebViewScreen(),
     );
   }
 }

@@ -4,9 +4,9 @@ class _Config {
   String applicationName = "Offline Webview";
 }
 
-final bool isInProduction = _isDebugModeCustom == false ? false : true;
+final bool isInProduction = isDebugMode == false ? false : true;
 
-bool get _isDebugModeCustom {
+bool get isDebugMode {
   bool value = false;
   assert(() {
     value = true;

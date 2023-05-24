@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+
+import '../config.dart';
 import 'clipboard.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -19,7 +21,7 @@ class StorageHelper {
 
   Future<File> writeTextToFile(String fileName, String text) async {
     final file = await getLocalFile(fileName);
-    await clipboard.copy(text);
+    if (isDebugMode) await clipboard.copy(text);
     return await file.writeAsString(text);
   }
 
