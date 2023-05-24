@@ -82,7 +82,7 @@ class _WebViewController {
     return connectionStatus;
   }
 
-  Future<WebViewController> initWebView() async {
+  Future<WebViewController> init() async {
     late final PlatformWebViewControllerCreationParams params;
     params = const PlatformWebViewControllerCreationParams();
 

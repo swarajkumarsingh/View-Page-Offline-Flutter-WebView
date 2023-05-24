@@ -2,7 +2,7 @@
     package="com.example.offline_webview">
 
     
-<!-- Internet Permission -->
+    <!-- Internet Permission -->
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <!-- Permissions options for the `storage` group -->

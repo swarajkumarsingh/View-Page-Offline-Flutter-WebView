@@ -22,7 +22,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
   }
 
   init() async {
-    WebViewController controller = await webViewController.initWebView();
+    final controller = await webViewController.init();
 
     setState(() {
       _controller = controller;
